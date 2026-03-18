@@ -73,7 +73,7 @@ function providerUpdate(btn){
 }
 
 function applyFilters(){
-  alert("Filters applied for prototype demo.");
+  alert("Filters applied.");
 }
 
 function clearFilters(){

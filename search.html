@@ -11,9 +11,9 @@
 <body>
   <div class="topbar">
     <div class="topbar-inner">
-      <div class="brand"><div class="logo"></div>FoodShare (Prototype)</div>
+      <div class="brand"><div class="logo"></div>FoodShare</div>
       <div class="nav">
-        <a href="index.html">Landing</a>
+        <a href="index.html">Home</a>
         <a href="search.html">Search</a>
         <a href="dashboard.html">Provider Dashboard</a>
       </div>
@@ -50,12 +50,12 @@
       <div class="label">Max price</div>
       <input class="input" id="maxPrice" placeholder="$10"/>
 
-      <div class="row" style="margin-top:12px;">
-        <button class="btn primary" type="button" id="applyFiltersBtn">Apply Filters</button>
-        <button class="btn" type="button" id="clearFiltersBtn">Clear</button>
-      </div>
+      <div style="margin-top:12px;">
+        <button class="btn primary" type="button" id="applyFiltersBtn" style="width:100%;">Apply Filters</button>
+        <button class="btn" type="button" id="clearFiltersBtn" style="width:100%; margin-top:8px;">Clear</button>
+      </div>  
 
-      <div class="footer-note">Prototype note: filter buttons are clickable and simulate interaction, but do not perform full backend filtering.</div>
+      <div class="footer-note"></div>
     </div>
 
     <div class="card">
@@ -63,10 +63,10 @@
 
       <div class="card">
         <div class="listing">
-          <div class="thumb"></div>
+          <img src="peanut-chicken-protein-bowl-index-660719760f97f.avif" class="thumb" alt="Chicken Teriyaki Bowl">
           <div>
             <h3>Chicken Teriyaki Bowl</h3>
-            <p class="small">Restaurant • 1.2 km • Pickup 6–8 PM</p>
+            <p class="small">Restaurant - 1.2 km - Pickup 6–8 PM</p>
             <div class="badges">
               <span class="badge info">$6.99</span>
               <span class="badge warn">Allergens: Soy</span>
@@ -80,10 +80,10 @@
 
       <div class="card" id="donation">
         <div class="listing">
-          <div class="thumb"></div>
+          <img src="Essential-Veggie-Farmbox.webp" class="thumb" alt="Produce Box">
           <div>
             <h3>Community Produce Box</h3>
-            <p class="small">Community Kitchen • 3.5 km • Pickup 5–7 PM</p>
+            <p class="small">Community Kitchen - 3.5 km - Pickup 5–7 PM</p>
             <div class="badges">
               <span class="badge ok">Donation</span>
               <span class="badge info">Voucher eligible</span>
@@ -97,10 +97,10 @@
 
       <div class="card">
         <div class="listing">
-          <div class="thumb"></div>
+          <img src="easy-spring-vegetable-pasta-goat-cheese-asparagus-peas-lemon-fork-knife-swoon-01.jpg" class="thumb" alt="Veggie Pasta">
           <div>
             <h3>Veggie Pasta</h3>
-            <p class="small">Caterer • 2.0 km • Delivery available</p>
+            <p class="small">Caterer - 2.0 km - Delivery available</p>
             <div class="badges">
               <span class="badge info">$5.49</span>
               <span class="badge warn">Allergens: Wheat</span>
@@ -112,7 +112,7 @@
         </div>
       </div>
 
-      <div class="footer-note">Each listing now links to a different item details page.</div>
+      <div class="footer-note"></div>
     </div>
   </div>
 </body>

@@ -11,9 +11,9 @@
 <body>
   <div class="topbar">
     <div class="topbar-inner">
-      <div class="brand"><div class="logo"></div>FoodShare (Prototype)</div>
+      <div class="brand"><div class="logo"></div>FoodShare</div>
       <div class="nav">
-        <a href="index.html">Landing</a>
+        <a href="index.html">Home</a>
         <a href="search.html">Search</a>
         <a href="dashboard.html">Provider Dashboard</a>
       </div>
@@ -40,7 +40,7 @@
           <div class="row" style="justify-content:space-between;">
             <div>
               <b>Order FS-12843</b>
-              <div class="small">Chicken Teriyaki Bowl • Pickup 6–8 PM • Paid</div>
+              <div class="small">Chicken Teriyaki Bowl - Pickup 6–8 PM - Paid</div>
             </div>
             <span class="badge info">Requested</span>
           </div>
@@ -48,7 +48,7 @@
             <button class="btn secondary" data-action="accept" type="button">Accept</button>
             <button class="btn danger" data-action="reject" type="button">Reject</button>
           </div>
-          <div class="footer-note">Prototype note: Accept/Reject demonstrates provider decision + feedback.</div>
+          <div class="footer-note"></div>
         </div>
       </div>
     </div>
@@ -60,19 +60,22 @@
         <div class="card">
           <b>Order FS-12843</b>
           <div class="small">Current status: <span class="provStatus">Accepted</span></div>
-          <div class="row" style="margin-top:10px;">
+         <div class="row" style="margin-top:10px;">
             <button class="btn" data-action="prep" type="button">Set Preparing</button>
             <button class="btn" data-action="ready" type="button">Set Ready</button>
             <button class="btn primary" data-action="complete" type="button">Complete</button>
+            <button class="btn danger" data-action="noshow" type="button">No Show</button>
           </div>
         </div>
 
         <div class="card">
           <b>Order FS-12812</b>
           <div class="small">Current status: <span class="provStatus">Preparing</span></div>
-          <div class="row" style="margin-top:10px;">
+         <div class="row" style="margin-top:10px;">
+            <button class="btn" data-action="prep" type="button">Set Preparing</button>
             <button class="btn" data-action="ready" type="button">Set Ready</button>
             <button class="btn primary" data-action="complete" type="button">Complete</button>
+            <button class="btn danger" data-action="noshow" type="button">No Show</button>
           </div>
         </div>
 
@@ -80,13 +83,15 @@
           <b>Order FS-12790</b>
           <div class="small">Current status: <span class="provStatus">Ready</span></div>
           <div class="row" style="margin-top:10px;">
+            <button class="btn" data-action="prep" type="button">Set Preparing</button>
+            <button class="btn" data-action="ready" type="button">Set Ready</button>
             <button class="btn primary" data-action="complete" type="button">Complete</button>
-            <button class="btn danger" data-action="noshow" type="button">Mark No-show</button>
+            <button class="btn danger" data-action="noshow" type="button">No Show</button>
           </div>
         </div>
       </div>
 
-      <div class="footer-note">Prototype note: status buttons simulate real-time updates for customers.</div>
+      <div class="footer-note"></div>
     </div>
   </div>
 </body>

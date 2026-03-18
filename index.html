@@ -10,9 +10,9 @@
 <body>
   <div class="topbar">
     <div class="topbar-inner">
-      <div class="brand"><div class="logo"></div>FoodShare (Prototype)</div>
+      <div class="brand"><div class="logo"></div>FoodShare</div>
       <div class="nav">
-        <a href="index.html">Landing</a>
+        <a href="index.html">Home</a>
         <a href="search.html">Search</a>
         <a href="dashboard.html">Provider Dashboard</a>
       </div>
@@ -22,7 +22,7 @@
   <div class="container">
     <div class="card">
       <div class="h1">Surplus meals & community food boxes across Toronto</div>
-      <p class="p">Browse discounted surplus meals or find donation food boxes. View allergens, nutrition, portion size, and pickup/delivery windows before requesting an order.</p>
+      <p class="p">Browse discounted surplus meals or donation boxes. View item details before requesting an order.</p>
       <div class="row" style="margin-top:12px;">
         <a class="btn primary" href="search.html">Browse Surplus Meals</a>
         <a class="btn secondary" href="search.html#donation">Find Donation Food Boxes</a>
@@ -32,17 +32,17 @@
     <div class="grid grid-2" style="margin-top:14px;">
       <div class="card">
         <div class="h2">Quick search</div>
-        <div class="label">Keyword</div>
-        <input class="input" placeholder="e.g., pasta, halal, vegan, produce box"/>
-        <div class="label">Neighborhood</div>
+        <div class="label">Listing type</div>
+        <input class="input" placeholder="e.g., All"/>
+        <div class="label">Price</div>
         <select>
-          <option>Downtown</option>
-          <option>North York</option>
-          <option>Scarborough</option>
-          <option>Etobicoke</option>
+          <option>Any</option>
+          <option>Under $5</option>
+          <option>$5 - $10</option>
+          <option>Over $10</option>
         </select>
-        <div class="row" style="margin-top:12px;">
-          <a class="btn primary" href="search.html">Search</a>
+        <div style="margin-top:12px;">
+          <a class="btn primary" href="search.html" style="width:100%;">Search</a>
         </div>
       </div>
 
@@ -57,15 +57,15 @@
     </div>
 
     <div class="card" style="margin-top:14px;">
-      <div class="h2">Featured listings (preview)</div>
+      <div class="h2">Featured listings</div>
 
       <div class="grid grid-3">
         <div class="card">
           <div class="listing">
-            <div class="thumb"></div>
+            <img src="peanut-chicken-protein-bowl-index-660719760f97f.avif" class="thumb" alt="Chicken Teriyaki Bowl">
             <div>
               <h3>Chicken Teriyaki Bowl</h3>
-              <p class="small">Restaurant • 1.2 km • Pickup 6–8 PM</p>
+              <p class="small">Restaurant - 1.2 km - Pickup 6–8 PM</p>
               <div class="badges">
                 <span class="badge info">$6.99</span>
                 <span class="badge warn">Allergens: Soy</span>
@@ -79,10 +79,10 @@
 
         <div class="card">
           <div class="listing">
-            <div class="thumb"></div>
+            <img src="Essential-Veggie-Farmbox.webp" class="thumb" alt="Produce Box">
             <div>
               <h3>Community Produce Box</h3>
-              <p class="small">Community Kitchen • 3.5 km • Pickup 5–7 PM</p>
+              <p class="small">Community Kitchen - 3.5 km - Pickup 5–7 PM</p>
               <div class="badges">
                 <span class="badge ok">Donation</span>
                 <span class="badge info">Voucher eligible</span>
@@ -96,10 +96,10 @@
 
         <div class="card">
           <div class="listing">
-            <div class="thumb"></div>
+            <img src="easy-spring-vegetable-pasta-goat-cheese-asparagus-peas-lemon-fork-knife-swoon-01.jpg" class="thumb" alt="Veggie Pasta">
             <div>
               <h3>Veggie Pasta</h3>
-              <p class="small">Caterer • 2.0 km • Delivery available</p>
+              <p class="small">Caterer - 2.0 km - Delivery available</p>
               <div class="badges">
                 <span class="badge info">$5.49</span>
                 <span class="badge warn">Allergens: Wheat</span>
@@ -112,7 +112,7 @@
         </div>
       </div>
 
-      <div class="footer-note">Prototype note: each featured listing now has its own detail page to support a higher-fidelity prototype.</div>
+      <div class="footer-note"></div>
     </div>
   </div>
 </body>

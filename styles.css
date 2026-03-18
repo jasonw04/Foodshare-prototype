@@ -88,6 +88,42 @@ a{ color:inherit; text-decoration:none; }
 .grid-2{ grid-template-columns:1fr 1fr; }
 .grid-3{ grid-template-columns:1fr 1fr 1fr; }
 
+.grid.grid-3 {
+  align-items: stretch;
+}
+
+.grid.grid-3 > .card {
+  display: flex;
+}
+
+.grid.grid-3 > .card .listing {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.grid.grid-3 > .card .listing > div:last-child {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100%;
+}
+
+.grid.grid-3 > .card .row {
+  margin-top: auto !important;
+}
+
+.grid.grid-3 > .card .btn {
+  width: 100%;
+  max-width: 230px;
+}
+
+.grid.grid-3 > .card .row {
+  margin-top: auto !important;
+  justify-content: center;
+}
+
 @media (max-width: 860px){
   .grid-2,.grid-3{ grid-template-columns:1fr; }
 }
@@ -98,6 +134,15 @@ a{ color:inherit; text-decoration:none; }
   border-radius:16px;
   box-shadow:var(--shadow);
   padding:16px;
+}
+
+/* quick search only */
+.card .h2 + .label ~ .row {
+  display: block;
+}
+
+.card .h2 + .label ~ .row .btn {
+  width: 100%;
 }
 
 .h1{
@@ -175,9 +220,10 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .badges{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
 
 .badge{
@@ -213,23 +259,61 @@ a{ color:inherit; text-decoration:none; }
   align-items:flex-start;
 }
 
-.thumb{
-  width:88px;
-  height:88px;
-  border-radius:16px;
-  background:#e8eef7;
-  border:1px dashed #b7c4d6;
-  flex-shrink:0;
+.thumb {
+  width: 88px;
+  height: 88px;
+  border-radius: 16px;
+  object-fit: cover; 
 }
 
-.hero-thumb{
-  width:100%;
-  height:240px;
+.hero-thumb {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
 }
 
 .listing h3{
   margin:0 0 6px;
   font-size:16px;
+}
+
+.grid.grid-3 > .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.listing > div:last-child {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* search results buttons */
+.listing .row {
+  width: 100%;
+}
+
+.listing .row .btn {
+  width: 100%;
+  max-width: none;
+}
+
+.listing .row {
+  margin-top: auto;
+  padding: 0 10px;
+  justify-content: center;
+}
+
+.listing .btn {
+  width: 100%;
+  height: 44px;
+}
+.grid.grid-3 > .card {
+  padding-bottom: 20px;
+}
+
+.badges {
+  margin-bottom: 10px;
 }
 
 .small{
@@ -286,4 +370,8 @@ a{ color:inherit; text-decoration:none; }
   margin-top:14px;
   font-size:12px;
   color:#666;
+}
+
+.row .btn + .btn {
+  margin-top: 10px;
 }
