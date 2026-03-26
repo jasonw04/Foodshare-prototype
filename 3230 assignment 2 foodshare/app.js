@@ -5,6 +5,7 @@ function setActivePayment(mode){
   const payBox = qs("#payBox");
   const voucherBox = qs("#voucherBox");
   const modeLabel = qs("#modeLabel");
+
   if(!payBox || !voucherBox || !modeLabel) return;
 
   if(mode === "pay"){
@@ -20,38 +21,43 @@ function setActivePayment(mode){
 
 function checkoutConfirm(){
   const voucherInput = qs("#voucherCode");
-  const notice = qs("#checkoutNotice");
-  const status = qs("#statusLine");
   const mode = qs("input[name='paymode']:checked")?.value || "pay";
+  const notice = qs("#checkoutNotice");
 
   if(mode === "voucher"){
     const code = voucherInput?.value?.trim() || "";
     if(code.length === 0){
-      notice.className = "notice-box err mt-3";
-      notice.innerHTML = "<b>Voucher error:</b> Please enter a voucher code.";
-      notice.classList.remove("d-none");
+      if(notice){
+        notice.className = "notice-box err mt-3";
+        notice.innerHTML = "<b>Voucher error:</b> Please enter a voucher code.";
+        notice.classList.remove("d-none");
+      }
       return;
     }
   }
 
-  notice.className = "notice-box ok mt-3";
-  notice.innerHTML = "<b>Order Requested!</b> Order ID: <span style='font-family:monospace'>FS-12843</span>. Status updates will appear below.";
-  notice.classList.remove("d-none");
+  const item = document.body.dataset.item || "FoodShare order";
+  const provider = document.body.dataset.provider || "FoodShare provider";
+  const orderId = "FS-12843";
+  const payment = mode === "voucher" ? "Voucher redeemed" : "Paid online";
 
-  if(status){
-    status.textContent = "Requested";
-    status.className = "badge-pill badge-info";
-    setTimeout(()=>{ status.textContent = "Accepted"; }, 900);
-    setTimeout(()=>{ status.textContent = "Preparing"; }, 1800);
-    setTimeout(()=>{ status.textContent = "Ready for pickup"; status.className = "badge-pill badge-ok"; }, 2700);
-  }
+  const params = new URLSearchParams({
+    item,
+    provider,
+    payment,
+    order: orderId
+  });
+
+  window.location.href = `order-tracking.html?${params.toString()}`;
 }
 
 function providerUpdate(btn){
   const card = btn.closest(".provider-order");
   const status = card?.querySelector(".provStatus");
   if(!status) return;
+
   const action = btn.dataset.action;
+
   if(action === "accept") status.textContent = "Accepted";
   if(action === "reject") status.textContent = "Rejected";
   if(action === "prep") status.textContent = "Preparing";
@@ -60,16 +66,68 @@ function providerUpdate(btn){
   if(action === "noshow") status.textContent = "No-show";
 }
 
-document.addEventListener("click", (e)=>{
+function applyTrackingStage(stage){
+  const currentText = qs("#trackingCurrentText");
+  const stages = qsa(".tracking-stage");
+  const order = ["requested", "accepted", "preparing", "ready", "completed"];
+  const labels = {
+    requested: "Requested",
+    accepted: "Accepted",
+    preparing: "Preparing",
+    ready: "Ready",
+    completed: "Completed"
+  };
+
+  const activeIndex = order.indexOf(stage);
+
+  if(currentText && labels[stage]){
+    currentText.textContent = labels[stage];
+  }
+
+  stages.forEach((el) => {
+    const idx = order.indexOf(el.dataset.stage);
+    el.classList.toggle("active", idx > -1 && idx <= activeIndex);
+  });
+}
+
+function initOrderTrackingPage(){
+  if(!qs(".tracking-stages")) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const item = params.get("item") || "Chicken Teriyaki Bowl";
+  const provider = params.get("provider") || "Midtown Bento";
+  const payment = params.get("payment") || "Paid online";
+  const order = params.get("order") || "FS-12843";
+
+  const itemEl = qs("#trackingItem");
+  const providerEl = qs("#trackingProvider");
+  const paymentEl = qs("#trackingPayment");
+  const metaEl = qs("#trackingMeta");
+
+  if(itemEl) itemEl.textContent = item;
+  if(providerEl) providerEl.textContent = provider;
+  if(paymentEl) paymentEl.textContent = payment;
+  if(metaEl) metaEl.textContent = `${order} • Live status updates`;
+
+  applyTrackingStage("requested");
+  setTimeout(() => applyTrackingStage("accepted"), 900);
+  setTimeout(() => applyTrackingStage("preparing"), 1800);
+  setTimeout(() => applyTrackingStage("ready"), 2700);
+  setTimeout(() => applyTrackingStage("completed"), 3600);
+}
+
+document.addEventListener("click", (e) => {
   const t = e.target.closest("button, label");
   if(!t) return;
+
   if(t.matches("#payBtn")) setActivePayment("pay");
   if(t.matches("#voucherBtn")) setActivePayment("voucher");
   if(t.matches("#confirmOrderBtn")) checkoutConfirm();
   if(t.matches("[data-action]")) providerUpdate(t);
 });
 
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
   const mode = document.querySelector("input[name='paymode']:checked")?.value;
   if(mode) setActivePayment(mode);
+  initOrderTrackingPage();
 });

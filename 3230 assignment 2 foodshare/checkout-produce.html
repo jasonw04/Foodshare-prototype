@@ -79,19 +79,17 @@
             <input class="form-control" id="voucherCode" placeholder="Enter voucher code">
           </div>
         </div>
-        <div class="d-flex flex-wrap gap-2 mt-3">
-          <!-- confirm and cancel buttons -->
-          <button class="btn btn-fs-primary" id="confirmOrderBtn" type="button">Confirm Order</button>
-          <a class="btn btn-fs-outline" href="product-produce.html">Cancel</a>
+        <!-- confirm order and cancel buttons -->
+        <div class="checkout-btn-row mt-3">
+          <button class="btn btn-fs-primary checkout-btn w-100" id="confirmOrderBtn" type="button">
+            Confirm Order
+          </button>
+          <a class="btn btn-fs-outline checkout-btn w-100" href="product-produce.html">
+            Cancel
+          </a>
         </div>
+
         <div id="checkoutNotice" class="notice-box d-none mt-3"></div>
-        <div class="hr-soft"></div>
-        <!-- real-time status demo -->
-        <h2 class="fs-title-md">Real-time status (demo)</h2>
-        <div class="d-flex gap-2 align-items-center">
-          <span class="k-label">Status:</span>
-          <span id="statusLine" class="badge-pill badge-info">Not submitted</span>
-        </div>
       </div>
     </div>
   </div>
