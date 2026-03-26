@@ -221,19 +221,15 @@ a{ text-decoration:none; }
   border-color:var(--border);
 }
 
-@media (max-width: 767.98px){
-  .thumb-box-lg{ height:220px; }
-}
-
 .featured-badges .badge-pill {
-  font-size: 0.7rem;      /* smaller text */
-  padding: 4px 8px;       /* tighter padding */
+  font-size: 0.7rem;
+  padding: 4px 8px;
   border-radius: 999px;
   white-space: nowrap;
 }
 
 .featured-badges {
-  gap: 6px;               /* slightly smaller spacing */
+  gap: 6px;
 }
 
 .request-status {
@@ -302,4 +298,19 @@ a{ text-decoration:none; }
   object-fit: cover;
   display: block;
   border-radius: 20px;
+}
+
+.fs-card .btn {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fs-card form button {
+  margin-top: auto;
+}
+
+@media (max-width: 767.98px){
+  .thumb-box-lg{ height:220px; }
 }
