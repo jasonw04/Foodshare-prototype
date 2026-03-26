@@ -33,6 +33,7 @@
   <div class="row g-3">
     <div class="col-12 col-lg-6">
       <div class="fs-card p-4 h-100">
+        <!-- order summary details -->
         <h2 class="fs-title-md">Order Summary</h2>
         <div class="kv-row"><span class="k-label">Item</span><span class="k-value">Community Produce Box</span></div>
         <div class="kv-row"><span class="k-label">Provider</span><span class="k-value">Community Kitchen</span></div>
@@ -41,18 +42,21 @@
         <div class="kv-row"><span class="k-label">Total</span><span class="k-value">Donation / Voucher</span></div>
       </div>
     </div>
+    <!-- payment options -->
     <div class="col-12 col-lg-6">
       <div class="fs-card p-4 h-100">
         <h2 class="fs-title-md">Checkout</h2>
         <p class="mb-3">Payment mode: <span id="modeLabel">Pay Online</span></p>
         <div class="d-flex flex-wrap gap-2">
           <label class="btn btn-fs-outline" id="payBtn">
+            <!-- toggle between pay online and voucher options -->
             <input class="form-check-input me-2" type="radio" name="paymode" value="pay" checked>Pay Online
           </label>
           <label class="btn btn-fs-outline" id="voucherBtn">
             <input class="form-check-input me-2" type="radio" name="paymode" value="voucher">Redeem Voucher
           </label>
         </div>
+        <!-- payment form for card details or voucher code -->
         <div id="payBox" class="mt-3">
           <div class="mb-3">
             <label class="form-label">Card number</label>
@@ -76,11 +80,13 @@
           </div>
         </div>
         <div class="d-flex flex-wrap gap-2 mt-3">
+          <!-- confirm and cancel buttons -->
           <button class="btn btn-fs-primary" id="confirmOrderBtn" type="button">Confirm Order</button>
           <a class="btn btn-fs-outline" href="product-produce.html">Cancel</a>
         </div>
         <div id="checkoutNotice" class="notice-box d-none mt-3"></div>
         <div class="hr-soft"></div>
+        <!-- real-time status demo -->
         <h2 class="fs-title-md">Real-time status (demo)</h2>
         <div class="d-flex gap-2 align-items-center">
           <span class="k-label">Status:</span>
