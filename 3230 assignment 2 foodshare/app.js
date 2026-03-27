@@ -93,6 +93,8 @@ function applyTrackingStage(stage){
 function initOrderTrackingPage(){
   if(!qs(".tracking-stages")) return;
 
+  // does not fully work
+  // provider name and item do not work
   const params = new URLSearchParams(window.location.search);
   const item = params.get("item") || "Chicken Teriyaki Bowl";
   const provider = params.get("provider") || "Midtown Bento";
